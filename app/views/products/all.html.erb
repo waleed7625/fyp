@@ -18,12 +18,14 @@
         <td><%= product.name %></td>
         <td><%= product.description %></td>
         <td><%= product.price %></td>
-
+        <td><%= link_to 'Show', user_product_path(current_user,product) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+
+
 
 <%= link_to 'New Product', new_user_product_path(current_user) %>

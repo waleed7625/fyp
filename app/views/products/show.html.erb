@@ -4,6 +4,12 @@
   <strong>Name:</strong>
   <%= @product.name %>
 </p>
+<%(0...@product.images.count).each do|image|%>
+<div style="width:300px; height:300px;">
+<%= image_tag(@product.images[image], style: "width:100%; height: auto")%>
+</div>
+<% end %>
+
 
 <p>
   <strong>Description:</strong>
@@ -14,6 +20,5 @@
   <strong>Price:</strong>
   <%= @product.price %>
 </p>
-
 <%= link_to 'Edit', edit_user_product_path(@product) %> |
 <%= link_to 'Back', user_products_path(@product) %>
