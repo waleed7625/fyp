@@ -4,11 +4,12 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
 
   def all
-  @products = Product.all
+    @products = Product.all
   end
 
   # GET /products or /products.json
   def index
+    
     @products = current_user.products.all
   end
 
@@ -21,8 +22,7 @@ class ProductsController < ApplicationController
   end
 
   # GET /products/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /products or /products.json
   def create
@@ -41,8 +41,6 @@ class ProductsController < ApplicationController
 
   # PATCH/PUT /products/1 or /products/1.json
   def update
-   
-
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to products_url(product), notice: 'Product was successfully updated.' }

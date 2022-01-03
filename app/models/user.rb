@@ -7,7 +7,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :lockable, :trackable
   has_one_attached :avatar
-  has_many :products
+  has_many :products, dependent: :destroy
+  has_many :comments, dependent: :destroy
+
   after_commit :add_default_avatar, on: %i[create update]
 
   def avatar_thumbnail
