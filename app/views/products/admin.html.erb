@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Products</h1>
+<h1>your Products</h1>
 
 <table>
   <thead>
@@ -18,20 +17,12 @@
         <td><%= product.name %></td>
         <td><%= product.description %></td>
         <td><%= product.price %></td>
-         <%if user_signed_in?%>
-<td><%= link_to 'Show', user_product_path(current_user,product) %></td>
-      <%end%>
+        <td><%= link_to 'Show', user_product_path(current_user,product) %></td>
+        <td><%= link_to 'Edit', edit_user_product_path(current_user, product) %></td>
+        <td><%= link_to 'Destroy', user_product_path(current_user, product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
 
-       <%if user_signed_in?%>
-
-<%= link_to 'New Product', new_user_product_path(current_user) %>
- <%= link_to "Sign out", destroy_user_session_path, method: :delete%>
-<%else%>
-<%= link_to 'sign in', new_user_session_path%>
-<%end%>

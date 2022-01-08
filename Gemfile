@@ -13,6 +13,8 @@ gem 'sqlite3'
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'bootstrap-sass', '~> 3.3.7'
+gem 'jquery-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -36,6 +38,9 @@ gem 'image_processing', '~>1.2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# sessions to store on database
+gem 'activerecord-session_store', '~> 1.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -68,3 +73,5 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # including gem for authentication
 gem 'devise'
+
+

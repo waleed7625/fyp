@@ -5,13 +5,13 @@ class Product < ApplicationRecord
   belongs_to :user, foreign_key: true, optional: true
   has_many :comments, dependent: :destroy
   validate :images_type
+  has_many :carts
 
-  private
-
+  
   def images_type
-    errors.add(:images, 'are missing') if images.attached? == false
-    images.each do |image|
-      errors.add(:images, 'need to be a JPEG or PNG') unless image.content_type.in?(%('image/jpeg image/png'))
+    error.add(:images, 'are missing') if images.attached? == false
+    images.each do|image|
+      errors.add(:image, 'need to be jpeg pr png') unless image.content_type.in?(%('image/jpeg image/png'))
     end
   end
 end

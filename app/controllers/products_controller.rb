@@ -2,16 +2,30 @@
 
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
+before_action :authenticate_user!, only: %i[admin]
 
-  def all
-    @products = Product.all
+  def add_to_cart
+    id = params[:id].to_i
+    session[:cart] << id unless session[:cart].include?(id)
+    redirect_to root_path
+  end
+
+  def remove_from_cart
+    id = params[:id].to_i
+    session[:cart].delete(id)
+    redirect_to root_path
+  end
+
+  def admin
+    @products = current_user.products.all
   end
 
   # GET /products or /products.json
   def index
-    
-    @products = current_user.products.all
+    @products=Product.all
   end
+
+
 
   # GET /products/1 or /products/1.json
   def show; end
