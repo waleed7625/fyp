@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get 'cancel/:id', to: 'checkout#cancel', as: 'checkout_cancel'
     get 'success/:id', to: 'checkout#success', as: 'checkout_success'
   end
-  get 'products/admin', to: 'products#admin'
+  get 'products/admin', to: 'products#admin', as: 'products_admin'
   post 'carts/add_to_cart/:id', to: 'carts#add_to_cart', as: 'carts_add_to_cart'
   delete 'carts/remove_from_cart/:id', to: 'carts#remove_from_cart', as: 'remove_from_cart'
   resources :products do
