@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :initialize_session
   before_action :load_cart
@@ -16,7 +15,7 @@ class ApplicationController < ActionController::Base
   private
 
   def initialize_session
-  session[:cart] ||= []
+    session[:cart] ||= []
   end
 
   def load_cart

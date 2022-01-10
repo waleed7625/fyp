@@ -18,9 +18,8 @@ module Fyp7
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     ActiveRecord::SessionStore::Session.table_name = 'sessions'
-ActiveRecord::SessionStore::Session.primary_key = 'session_id'
-ActiveRecord::SessionStore::Session.data_column_name = 'data'
-# ActiveRecord::SessionStore::Session.serializer = :json
-    
+    ActiveRecord::SessionStore::Session.primary_key = 'session_id'
+    ActiveRecord::SessionStore::Session.data_column_name = 'data'
+    # ActiveRecord::SessionStore::Session.serializer = :json
   end
 end
