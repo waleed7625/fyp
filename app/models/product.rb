@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
 class Product < ApplicationRecord
+  include PgSearch::Model
+  pg_search_scope :search, 
+  against: {
+    name: 'A'
+  },
+ using:{
+   tsearch: { dictionary: 'english' }
+ }
   has_many_attached :images
   belongs_to :user, foreign_key: true, optional: true
   has_many :comments, dependent: :destroy

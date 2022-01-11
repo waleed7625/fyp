@@ -20,5 +20,6 @@ class ApplicationController < ActionController::Base
 
   def load_cart
     @cart = Product.find(session[:cart])
+
   end
 end

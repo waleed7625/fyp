@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-ActionDispatch::Session::ActiveRecordStore.session_class = MySessionClass
+# ActionDispatch::Session::ActiveRecordStore.session_class = MySessionClass
 
 class AddSessionsTable < ActiveRecord::Migration[5.2]
   def change

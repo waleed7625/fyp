@@ -22,7 +22,12 @@ before_action :authenticate_user!, only: %i[admin]
 
   # GET /products or /products.json
   def index
-    @products=Product.all
+    @products = Product.all
+    @search = params["search"]
+    if @search.present?
+      @name = @search["name"]
+      @products = Product.where("name ILIKE?", "%#{@name}%")
+    end
   end
 
 
